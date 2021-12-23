@@ -14,3 +14,6 @@ saves all all its changes
 
 ### Global state 
 saves all changes of all states
+
+### State.snapshot() 
+Captures the current state of the state
