@@ -36,7 +36,7 @@ class StateFC {
     }
   }
 
-  create(type, name) {
+  define(type, name) {
     let connection = connect(new this.statesLevel[type](name));
     return [
       connection, (data) => stream.notify(data, connection)
@@ -44,4 +44,6 @@ class StateFC {
   }
 }
 
-export const StateFactory = new StateFC();
+export const defineLowStream = (name) => new StateFC().define('low', name);
+export const defineMiddleStream = (name) => new StateFC().define('middle', name);
+export const defineGlobalStream = () => new StateFC().define('global', 'global_stream');

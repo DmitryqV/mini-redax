@@ -1,9 +1,9 @@
-import { StateFactory } from './patterns/factory.js';
+import { defineGlobal, defineLow, defineMiddle } from './patterns/factory.js';
 
 /** CONNECT TO APP STREAM **/
-const [globalState, setGlobalState] = StateFactory.create('global', 'global_stream'); /** GLOBAL STREAM  **/
-const [middleState, setMiddleState] = StateFactory.create('middle', 'middle_stream'); /** MID STREAM  **/
-const [state, setState] = StateFactory.create('low', 'low_stream'); /** LOW STREAM  **/
+const [globalState, setGlobalState] = defineGlobalStream(); /** GLOBAL STREAM  **/
+const [middleState, setMiddleState] = defineMiddleStream('middle_stream'); /** MID STREAM  **/
+const [state, setState] = defineLowStream('low_stream'); /** LOW STREAM  **/
 
 setState({ message: 'hello low state 1!' });
 console.log(state, '\n\n');

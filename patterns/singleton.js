@@ -2,9 +2,8 @@ import { Observer } from "./observer.js"
 
 export class GlobalWare extends Observer {
   constructor() {
-    if (GlobalWare.exists) {
-      return GlobalWare.instance;
-    }
+
+    if (GlobalWare.exists) return GlobalWare.instance;
 
     super();
 
