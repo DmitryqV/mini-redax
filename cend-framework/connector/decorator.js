@@ -1,4 +1,4 @@
-import { stream } from './observer.js';
+import { stream } from '../root/observer.js';
 import { proxy } from './proxy.js';
 
 export function connect(observer) {

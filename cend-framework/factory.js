@@ -1,7 +1,7 @@
-import { stream } from "./observer.js";
-import { MiddleWare, LowWare } from "./template.js";
-import { connect } from "./decorator.js";
-import { GlobalWare } from "./singleton.js";
+import { stream } from './root/observer.js';
+import { MiddleWare, LowWare } from './wares/ware.js';
+import { connect } from './connector/decorator.js';
+import { GlobalWare } from './wares/global.js';
 
 class GlobalStateWare extends GlobalWare {
   constructor(name) {
@@ -37,13 +37,13 @@ class StateFC {
   }
 
   define(type, name) {
-    let connection = connect(new this.statesLevel[type](name));
+    const connection = connect(new this.statesLevel[type](name));
     return [
       connection, (data) => stream.notify(data, connection)
     ];
   }
 }
 
-export const defineLowStream = (name) => new StateFC().define('low', name);
-export const defineMiddleStream = (name) => new StateFC().define('middle', name);
 export const defineGlobalStream = () => new StateFC().define('global', 'global_stream');
+export const defineMiddleStream = (name) => new StateFC().define('middle', name);
+export const defineLowStream = (name) => new StateFC().define('low', name);

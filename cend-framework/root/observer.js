@@ -1,4 +1,4 @@
-class Subject {
+class Stream {
   constructor() {
     this.observers = [];
   }
@@ -34,4 +34,4 @@ export class Observer {
   clear() { }
 }
 
-export const stream = new Subject()
+export const stream = new Stream();

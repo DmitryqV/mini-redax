@@ -1,4 +1,4 @@
-import { Observer } from "./observer.js";
+import { Observer } from '../root/observer.js';
 
 export class MiddleWare extends Observer {
   constructor() {
