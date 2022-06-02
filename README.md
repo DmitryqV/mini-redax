@@ -10,7 +10,7 @@
 retains 2 states of the current and previous
 
 ### Middle state 
-saves all all its changes
+saves all changes of middle states
 
 ### Global state 
 saves all changes of all states
